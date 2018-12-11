@@ -101,7 +101,9 @@ def matplotlib_paper_graph():
     plt.grid(True)
     plt.legend(loc='upper left')
     plt.tight_layout()
+
     plt.show()
+
 
 
 BOTDR_DataFileName = "Raw data.txt"
@@ -110,7 +112,7 @@ BOTDR_DataFileName = "Raw data.txt"
 # ReadFirstLine(BOTDR_DataFileName)
 # ReadValues(BOTDR_DataFileName)
 # nparray_example()
-matplotlib_simple_graph()
+# matplotlib_simple_graph()
 matplotlib_paper_graph()
 
 
