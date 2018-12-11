@@ -1,6 +1,6 @@
 import os
 import numpy as np  # Python에서 배열을 사용하기 위한 표준 패키지 NumPy
-
+import matplotlib.pyplot as plt
 
 def search(dirname):
     filenames = os.listdir(dirname)
@@ -33,6 +33,7 @@ def ReadAllLines2(FN):
     f.close()
 
 
+# BOTDR 결과파일에서 줄단위로 읽어오기
 def ReadValues(FN):
     with open(FN, 'r') as f:
         title = f.readline()
@@ -47,7 +48,8 @@ def ReadValues(FN):
         #        yield float(number)
 
 
-def nparrayexample():
+# nparray 예제
+def nparray_example():
     # 1차원 배열 만들기
     data = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     answer = data * 2
@@ -72,14 +74,48 @@ def nparrayexample():
     print(c[0, 1:3])
 
 
-# search("c:/")
+def matplotlib_simple_graph():
+    x = np.linspace(0, 1, 100)
+
+    y1 = np.cos(4*np.pi*x)
+    y2 = np.cos(4*np.pi*x) * np.exp(-2*x)
+
+    plt.plot(x, y1)
+    plt.plot(x, y2)
+
+    plt.show()
+
+
+def matplotlib_paper_graph():
+    x = np.linspace(0, 1, 100)
+
+    y1 = np.cos(4*np.pi*x)
+    y2 = np.cos(4*np.pi*x) * np.exp(-2*x)
+
+    plt.plot(x, y1, 'r-*', label=r'$sin(4 \pi x)$', lw=1)
+    plt.plot(x, y2, 'b--o', label=r'$ e^{-2x} sin(4\pi x) $', lw=1)
+    plt.title(r'$sin(4 \pi x)$ vs. $ e^{-2x} sin(4\pi x)$')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.axis([0, 1, -1.5, 1.5])
+    plt.grid(True)
+    plt.legend(loc='upper left')
+    plt.tight_layout()
+    plt.show()
+
+
 BOTDR_DataFileName = "Raw data.txt"
+# search("c:/")
 # Length = []
-
 # ReadFirstLine(BOTDR_DataFileName)
-
 # ReadValues(BOTDR_DataFileName)
-nparrayexample()
+# nparray_example()
+matplotlib_simple_graph()
+matplotlib_paper_graph()
+
+
+
+
 
 
 
