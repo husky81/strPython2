@@ -1,16 +1,21 @@
 import os
 import numpy as np  # Python에서 배열을 사용하기 위한 표준 패키지 NumPy
 
+
 def search(dirname):
     filenames = os.listdir(dirname)
     for filename in filenames:
         full_filename = os.path.join(dirname, filename)
         print(full_filename)
-def ReadFirstLine(FN):
-    f = open(FN, 'r')
+
+
+def read_first_line(fn):
+    f = open(fn, 'r')
     line = f.readline()
     print(line)
     f.close()
+
+
 def ReadAllLines(FN):
     f = open(BOTDR_DataFileName, 'r')
     while True:
@@ -18,12 +23,16 @@ def ReadAllLines(FN):
         if not line: break
         print(line)
     f.close()
+
+
 def ReadAllLines2(FN):
     f = open(BOTDR_DataFileName, 'r')
     lines = f.readlines()
     for line in lines:
         print(line)
     f.close()
+
+
 def ReadValues(FN):
     with open(FN, 'r') as f:
         title = f.readline()
@@ -36,6 +45,8 @@ def ReadValues(FN):
         #    line = line.strip()
         #    for number in line.split():
         #        yield float(number)
+
+
 def nparrayexample():
     # 1차원 배열 만들기
     data = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -59,6 +70,7 @@ def nparrayexample():
     print(c[1, 1])
     print(c[0, :])  # 첫번째 행 전체
     print(c[0, 1:3])
+
 
 # search("c:/")
 BOTDR_DataFileName = "Raw data.txt"
