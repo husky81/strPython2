@@ -13,7 +13,11 @@ ss = []
 for fn in file_list:
     ss.append(clsSensing.Sensing(fn))
 
-ss[2].show_graph_simple()
+ss[3].show_graph_simple()
+ss[4].show_graph_simple()
+ss[5].show_graph_simple()
+ss[6].show_graph_simple()
+ss[7].show_graph_simple()
 
 
 # list_data_file = file_all_botdr_data_files(data_folder)
