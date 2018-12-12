@@ -17,6 +17,7 @@ ss[3].show_graph_simple()
 ss[4].show_graph_simple()
 ss[5].show_graph_simple()
 ss[6].show_graph_simple()
+
 ss[7].show_graph_simple()
 
 
