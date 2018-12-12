@@ -1,0 +1,14 @@
+System Status
+-----------------------------------
+LD currnet: 265 [mA]
+LD TEC temperature: 31.95¡É
+Extinction ADC value: 0
+EOM bias voltage: 12 [V]
+Booster EDFA current: 0. [mA]
+Pre EDFA current: 188.9 [mA]
+
+APD Bias voltage:43 [V]
+
+Reference temperature:22 [¡É]
+-----------------------------------
+2018-10-11 ¿ÀÈÄ 2-26-30

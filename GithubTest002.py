@@ -1,6 +1,32 @@
 import os
-import numpy as np  # Python에서 배열을 사용하기 위한 표준 패키지 NumPy
-import matplotlib.pyplot as plt
+import numpy as np
+import clsSensing
+import FileControl
+
+
+data_folder = "D:/Project Python/002 PycharmGithubTest/BOTDR실험181010"
+data_file_name = "Raw data.txt"
+file_list = FileControl.find_all_files(data_folder, data_file_name)
+
+ss = []
+
+for fn in file_list:
+    ss.append(clsSensing.Sensing(fn))
+
+ss[2].show_graph_simple()
+
+
+# list_data_file = file_all_botdr_data_files(data_folder)
+# s1 = clsSensing.Sensing("D:/Project Python/002 PycharmGithubTest/BOTDR실험181010/2-0/2018-10-10 오후 3-46-09\\Raw data.txt")
+# s1.show_graph_simple()
+
+# s1 = clsSensing.Sensing(list_data_file[0])
+# s2 = clsSensing.Sensing("Raw data - 복사본.txt")
+# s1.show_graph_paper_style()
+# s2.show_graph_paper_style()
+
+# ReadBotdrData(s1, BOTDR_DataFileName)
+
 
 def search(dirname):
     filenames = os.listdir(dirname)
@@ -16,11 +42,12 @@ def read_first_line(fn):
     f.close()
 
 
-def ReadAllLines(FN):
+def read_all_lines(FN):
     f = open(BOTDR_DataFileName, 'r')
     while True:
         line = f.readline()
-        if not line: break
+        if not line:
+            break
         print(line)
     f.close()
 
@@ -33,7 +60,6 @@ def ReadAllLines2(FN):
     f.close()
 
 
-# BOTDR 결과파일에서 줄단위로 읽어오기
 def ReadValues(FN):
     with open(FN, 'r') as f:
         title = f.readline()
@@ -72,69 +98,6 @@ def nparray_example():
     print(c[1, 1])
     print(c[0, :])  # 첫번째 행 전체
     print(c[0, 1:3])
-
-
-def matplotlib_simple_graph():
-    x = np.linspace(0, 1, 100)
-
-    y1 = np.cos(4*np.pi*x)
-    y2 = np.cos(4*np.pi*x) * np.exp(-2*x)
-
-    plt.plot(x, y1)
-    plt.plot(x, y2)
-
-    plt.show()
-
-
-def matplotlib_paper_graph():
-    x = np.linspace(0, 1, 100)
-
-    y1 = np.cos(4*np.pi*x)
-    y2 = np.cos(4*np.pi*x) * np.exp(-2*x)
-
-    plt.plot(x, y1, 'r-*', label=r'$sin(4 \pi x)$', lw=1)
-    plt.plot(x, y2, 'b--o', label=r'$ e^{-2x} sin(4\pi x) $', lw=1)
-    plt.title(r'$sin(4 \pi x)$ vs. $ e^{-2x} sin(4\pi x)$')
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.axis([0, 1, -1.5, 1.5])
-    plt.grid(True)
-    plt.legend(loc='upper left')
-    plt.tight_layout()
-
-    plt.show()
-
-
-
-BOTDR_DataFileName = "Raw data.txt"
-# search("c:/")
-# Length = []
-# ReadFirstLine(BOTDR_DataFileName)
-# ReadValues(BOTDR_DataFileName)
-# nparray_example()
-# matplotlib_simple_graph()
-matplotlib_paper_graph()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
